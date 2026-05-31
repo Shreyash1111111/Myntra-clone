@@ -14,20 +14,21 @@ const FetchItems = () => {
     const signal = controller.signal;
 
     dispatch(fetchStatusActions.markFetchingStarted());
-    fetch("http://localhost:8080/items", { signal })
+
+    fetch("https://myntra-clone-sxv7.onrender.com/items", { signal })
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(fetchStatusActions.markFetchDone());
         dispatch(fetchStatusActions.markFetchingFinished());
-        dispatch(itemsActions.addInitialItems(items[0]));
+        dispatch(itemsActions.addInitialItems(items));
       });
 
     return () => {
       controller.abort();
     };
-  }, [fetchStatus]);
+  }, [fetchStatus, dispatch]);
 
-  return <></>;
+  return null;
 };
 
 export default FetchItems;
