@@ -15,7 +15,7 @@ const FetchItems = () => {
 
     dispatch(fetchStatusActions.markFetchingStarted());
 
-    fetch("https://myntra-clone-sxv7.onrender.com/items", { signal })
+   fetch("https://myntra-clone-cxs7.onrender.com/items", { signal })
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(fetchStatusActions.markFetchDone());
